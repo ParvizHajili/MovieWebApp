@@ -11,8 +11,8 @@
 <body>
     <header>
         @*<partial name="_MenuBar">*@
-        
-            @await Html.PartialAsync("_MenuBar")
+
+        @await Html.PartialAsync("_MenuBar")
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -20,10 +20,9 @@
         </main>
     </div>
 
+
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - MovieWebApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
+        @await Component.InvokeAsync("Footer",new{Test=12})
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
