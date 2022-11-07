@@ -5,13 +5,40 @@ namespace MovieWebApp.Models
     public class Movie
     {
         public int Id { get; set; }
-        [StringLength(50, MinimumLength = 5)]
-        public string Title { get; set; } = string.Empty;
+
+        [StringLength(30, MinimumLength = 5)]
+        public string Title { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
-        public string Genre { get; set; } = string.Empty;
-        [Range(0,100)]
-        public decimal Price { get; set; }
+        public Genre Genre { get; set; }
+
+        [Range(10, 10000, ErrorMessage = "Price is not correct")]
+        public double Price { get; set; }
+
+        [MaxLength(1000)]
+        public string? Description { get; set; }
+
+        [MaxLength(2000)]
+        public string? ImageUrl { get; set; }
+    }
+
+    public enum Genre : byte
+    {
+        Comedy,
+        Action,
+        Romance,
+        Horror,
+        Thriller,
+        Drama,
+        Documentary,
+        Animation,
+        Family,
+        Fantasy,
+        Adventure,
+        Mystery,
+        SciFi,
+        Western,
+        War
     }
 }
